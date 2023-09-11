@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="page_character">персонажи</string>
+    <string name="page_episode">эпизоды</string>
+    <string name="avatar_character">аватар персонажа</string>
+    <string name="page_location">локации</string>
+    <string name="species">Вид</string>
+    <string name="status">Статус</string>
+    <string name="gender">Гендер</string>
+    <string name="episode">Эпизод</string>
+    <string name="airDate">Дата релиза</string>
+    <string name="type">Тип</string>
+    <string name="dimension">Измерение</string>
+</resources>

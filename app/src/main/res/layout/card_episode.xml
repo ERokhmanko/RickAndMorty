@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/nameEpisode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Name Episode" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/episode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/episode"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/episodeEdite"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="The episode number will be displayed here" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/airDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/airDate"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/airDateEdite"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="The release date of the episode will be displayed here" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

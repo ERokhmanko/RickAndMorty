@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/character"
+        android:enabled="true"
+        android:icon="@drawable/ic_character_24"
+        android:title="@string/page_character"/>
+    <item
+        android:id="@+id/location"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_not_listed_location_24"
+        android:title="@string/page_location"/>
+    <item
+        android:id="@+id/episode"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_tv_24"
+        android:title="@string/page_episode"/>
+</menu>

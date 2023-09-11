@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/nameCharacterEdite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Name character" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/avatarCharacter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/avatar_character"
+                android:gravity="center"
+                android:src="@tools:sample/avatars" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/species"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/species"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/speciesEdite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="character view will be displayed here"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:gravity="center"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/statusEdite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="character status will be displayed here" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="@string/gender" />
+
+            <TextView
+                android:id="@+id/genderEditr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="character's gender will be displayed here" />
+        </TableRow>
+    </TableLayout>
+
+</com.google.android.material.card.MaterialCardView>

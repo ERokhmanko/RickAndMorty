@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">RickAndMorty</string>
+    <string name="page_character">characters</string>
+    <string name="page_location">locations</string>
+    <string name="page_episode">episodes</string>
+    <string name="avatar_character">avatar character</string>
+    <string name="species">Species</string>
+    <string name="status">Status</string>
+    <string name="gender">Gender</string>
+    <string name="episode">Episode</string>
+    <string name="airDate">AirDate</string>
+    <string name="type">Type</string>
+    <string name="dimension">Dimension</string>
+    <string name="description_filter">filter</string>
+    <string name="description_search">search</string>
+</resources>

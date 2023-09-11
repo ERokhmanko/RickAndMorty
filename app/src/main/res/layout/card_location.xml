@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/nameLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Name Location" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/type"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/typeEdite"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="The type location will be displayed here" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_short_card_description">
+
+            <TextView
+                android:id="@+id/dimension"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dimension"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dimensionEdite"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="The dimension will be displayed here" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
