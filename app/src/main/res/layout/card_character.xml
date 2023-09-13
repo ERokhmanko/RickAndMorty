@@ -44,7 +44,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/avatar_character"
                 android:gravity="center"
-                android:src="@tools:sample/avatars" />
+                android:src="@drawable/ic_avatar_165" />
         </TableRow>
 
         <TableRow

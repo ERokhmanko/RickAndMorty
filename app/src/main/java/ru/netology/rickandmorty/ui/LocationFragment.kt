@@ -9,11 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.netology.rickandmorty.R
-import ru.netology.rickandmorty.databinding.FragmentCharactersBinding
 import ru.netology.rickandmorty.databinding.FragmentLocationsBinding
 
 class LocationFragment : Fragment() {
-    private var _binding:FragmentLocationsBinding? = null
+    private var _binding: FragmentLocationsBinding? = null
     private val binding get() = _binding!!
 
     @Deprecated(
@@ -33,6 +32,7 @@ class LocationFragment : Fragment() {
                 //TODO
                 return true
             }
+
             R.id.filter -> {
                 //TODO
                 return true
@@ -55,6 +55,6 @@ class LocationFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
+        _binding = null
     }
 }
