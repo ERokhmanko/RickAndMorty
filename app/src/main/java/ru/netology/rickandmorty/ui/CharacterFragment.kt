@@ -34,6 +34,7 @@ class CharacterFragment : Fragment() {
                 //TODO
                 return true
             }
+
             R.id.filter -> {
                 //TODO
                 return true
@@ -47,7 +48,7 @@ class CharacterFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
 
 

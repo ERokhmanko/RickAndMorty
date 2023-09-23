@@ -13,4 +13,5 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/card_character" />
 
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
