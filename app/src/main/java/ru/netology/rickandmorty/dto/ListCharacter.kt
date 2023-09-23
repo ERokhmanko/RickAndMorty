@@ -10,9 +10,13 @@ data class ListCharacter(
 )
 
 data class InfoCharacter(
+    @SerializedName("count")
     val count: Int,
+    @SerializedName("pages")
     val pages: Int,
+    @SerializedName("next")
     val next: String,
+    @SerializedName("prev")
     val prev: Int?
 )
 
@@ -32,7 +36,7 @@ data class Character(
     @SerializedName("origin")
     val origin: Origin, //Name and link to the character's origin location.
     @SerializedName("location")
-    val location: Location, //Name and link to the character's last known location endpoint.
+    val location: LocationCharacter, //Name and link to the character's last known location endpoint.
     @SerializedName("image")
     val image: String, //Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
     @SerializedName("episode")
@@ -49,7 +53,7 @@ data class Origin(
     val url: String
 )
 
-data class Location(
+data class LocationCharacter(
     val name: String,
     val url: String
 )
