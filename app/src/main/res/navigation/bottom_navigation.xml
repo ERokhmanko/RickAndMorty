@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation.xml"
-    app:startDestination="@id/characterFragment">
+    app:startDestination="@id/character">
 
     <fragment
-        android:id="@+id/characterFragment"
+        android:id="@+id/character"
         android:name="ru.netology.rickandmorty.ui.CharacterFragment"
-        android:label="CharacterFragment" />
+        android:label="@string/page_character"
+        tools:layout="@layout/fragment_characters"/>
     <fragment
-        android:id="@+id/locationFragment"
+        android:id="@+id/location"
         android:name="ru.netology.rickandmorty.ui.LocationFragment"
-        android:label="LocationFragment" />
+        android:label="@string/page_location"
+        tools:layout="@layout/fragment_locations"/>
     <fragment
-        android:id="@+id/episodeFragment"
+        android:id="@+id/episode"
         android:name="ru.netology.rickandmorty.ui.EpisodeFragment"
-        android:label="EpisodeFragment" />
+        android:label="@string/page_episode"
+        tools:layout="@layout/fragment_episodes"/>
 </navigation>

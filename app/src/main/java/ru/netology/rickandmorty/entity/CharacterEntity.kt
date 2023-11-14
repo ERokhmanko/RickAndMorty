@@ -2,45 +2,14 @@ package ru.netology.rickandmorty.entity
 
 import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import ru.netology.rickandmorty.dto.Character
-import ru.netology.rickandmorty.dto.InfoCharacter
-import ru.netology.rickandmorty.dto.ListCharacter
 import ru.netology.rickandmorty.dto.LocationCharacter
 import ru.netology.rickandmorty.dto.Origin
 
 @Entity
-data class ListCharacterEntity(
-    @Embedded
-    val info: InfoCharacterEmbeddable,
-    @Embedded
-    val results: List<CharacterEmbeddable>
-) {
-    fun toDto() = ListCharacter(info.toDto(), results.map { it.toDto() })
-
-    companion object {
-        fun fromDto(dto: ListCharacter) =
-            ListCharacterEntity(InfoCharacterEmbeddable.fromDto(dto.info),
-                dto.results.map {
-                    CharacterEmbeddable.fromDto(it)
-                })
-
-    }
-}
-
-data class InfoCharacterEmbeddable(
-    val count: Int,
-    val pages: Int,
-    val next: String,
-    val prev: Int?
-) {
-    fun toDto() = InfoCharacter(count, pages, next, prev)
-
-    companion object {
-        fun fromDto(dto: InfoCharacter) = InfoCharacterEmbeddable(dto.count, dto.pages, dto.next, dto.prev)
-    }
-}
-
-data class CharacterEmbeddable(
+data class CharacterEntity(
+    @PrimaryKey(autoGenerate = false)
     val id: Int, //The id of the character.
     val name: String, //The name of the character.
     val status: String, //The status of the character ('Alive', 'Dead' or 'unknown').
@@ -72,7 +41,7 @@ data class CharacterEmbeddable(
     )
 
     companion object {
-        fun fromDto(dto: Character) = CharacterEmbeddable(
+        fun fromDto(dto: Character) = CharacterEntity(
             id = dto.id,
             name = dto.name,
             status = dto.status,
@@ -91,27 +60,25 @@ data class CharacterEmbeddable(
 }
 
 data class OriginEmbeddable(
-    val name: String,
-    val url: String
+    val nameOrigin: String,
+    val urlOrigin: String
 ) {
-    fun toDto() = Origin(name, url)
+    fun toDto() = Origin(nameOrigin, urlOrigin)
 
     companion object {
         fun fromDto(dto: Origin) = OriginEmbeddable(dto.name, dto.url)
-        //TODO проверить может ли приходить null
     }
 }
 
 
 data class LocationCharacterEmbeddable(
-    val name: String,
-    val url: String
+    val nameLocation: String,
+    val urlLocation: String
 ) {
-    fun toDto() = LocationCharacter(name, url)
+    fun toDto() = LocationCharacter(nameLocation, urlLocation)
 
     companion object {
         fun fromDto(dto: LocationCharacter) = LocationCharacterEmbeddable(dto.name, dto.url)
-        //TODO проверить может ли приходить null
     }
 
 }

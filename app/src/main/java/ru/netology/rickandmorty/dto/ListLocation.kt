@@ -19,6 +19,7 @@ data class InfoLocation(
     @SerializedName("prev")
     val prev: Int?
 )
+
 data class Location(
     @SerializedName("id")
     val id: Int, //	The id of the location.

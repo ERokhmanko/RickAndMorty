@@ -1,28 +1,12 @@
 package ru.netology.rickandmorty.entity
 
-import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import ru.netology.rickandmorty.dto.InfoLocation
-import ru.netology.rickandmorty.dto.ListLocation
 import ru.netology.rickandmorty.dto.Location
 
-data class ListLocationEntity(
-    @Embedded
-    val info: InfoLocationEmbeddable,
-    @Embedded
-    val results: List<LocationEmbeddable>
-) {
-    fun toDto() = ListLocation(info.toDto(), results.map { it.toDto() })
-
-    companion object {
-        fun fromDto(dto: ListLocation) =
-            ListLocationEntity(InfoLocationEmbeddable.fromDto(dto.info),
-                dto.results.map {
-                    LocationEmbeddable.fromDto(it)
-                })
-    }
-}
-
-data class InfoLocationEmbeddable(
+@Entity
+data class InfoLocationEntity(
     val count: Int,
     val pages: Int,
     val next: String,
@@ -32,11 +16,13 @@ data class InfoLocationEmbeddable(
 
     companion object {
         fun fromDto(dto: InfoLocation) =
-            InfoLocationEmbeddable(dto.count, dto.pages, dto.next, dto.prev)
+            InfoLocationEntity(dto.count, dto.pages, dto.next, dto.prev)
     }
 }
 
-data class LocationEmbeddable(
+@Entity
+data class LocationEntity(
+    @PrimaryKey
     val id: Int, //	The id of the location.
     val name: String, //	The name of the location.
     val type: String, //	The type of the location.
@@ -56,7 +42,7 @@ data class LocationEmbeddable(
     )
 
     companion object {
-        fun fromDto(dto: Location) = LocationEmbeddable(
+        fun fromDto(dto: Location) = LocationEntity(
             id = dto.id,
             name = dto.name,
             type = dto.type,

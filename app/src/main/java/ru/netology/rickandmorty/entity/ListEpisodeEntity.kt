@@ -1,27 +1,12 @@
 package ru.netology.rickandmorty.entity
 
-import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import ru.netology.rickandmorty.dto.Episode
 import ru.netology.rickandmorty.dto.InfoEpisode
-import ru.netology.rickandmorty.dto.ListEpisode
 
-data class ListEpisodeEntity(
-    @Embedded
-    val info: InfoEpisodeEmbedded,
-    @Embedded
-    val results: List<EpisodeEmbedded>
-) {
-    fun toDto() = ListEpisode(info.toDto(), results.map { it.toDto() })
-
-    companion object {
-        fun fromDto(dto: ListEpisode) =
-            ListEpisodeEntity(InfoEpisodeEmbedded.fromDto(dto.info), dto.results.map {
-                EpisodeEmbedded.fromDto(it)
-            })
-    }
-}
-
-data class InfoEpisodeEmbedded(
+@Entity
+data class InfoEpisodeEntity(
     val count: Int,
     val pages: Int,
     val next: String,
@@ -31,11 +16,13 @@ data class InfoEpisodeEmbedded(
 
     companion object {
         fun fromDto(dto: InfoEpisode) =
-            InfoEpisodeEmbedded(dto.count, dto.pages, dto.next, dto.prev)
+            InfoEpisodeEntity(dto.count, dto.pages, dto.next, dto.prev)
     }
 }
 
-data class EpisodeEmbedded(
+@Entity
+data class EpisodeEntity(
+    @PrimaryKey
     val id: Int, //	The id of the episode.
     val name: String, //	The name of the episode.
     val airDate: String, //	The air date of the episode.
@@ -55,7 +42,7 @@ data class EpisodeEmbedded(
     )
 
     companion object {
-        fun fromDto(dto: Episode) = EpisodeEmbedded(
+        fun fromDto(dto: Episode) = EpisodeEntity(
             id = dto.id,
             name = dto.name,
             airDate = dto.airDate,

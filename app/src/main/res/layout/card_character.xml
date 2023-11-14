@@ -11,8 +11,10 @@
 
 
     <TableLayout
+        android:id="@+id/cardCharacter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:stretchColumns="0,1">
 
         <TableRow
             android:layout_width="match_parent"
@@ -21,11 +23,15 @@
 
             <TextView
                 android:id="@+id/nameCharacterEdite"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:ellipsize="end"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
+                android:maxLines="2"
+                android:minLines="2"
+                android:stretchColumns="0,1"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 tools:text="Name character" />
@@ -39,7 +45,7 @@
 
             <ImageView
                 android:id="@+id/avatarCharacter"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/avatar_character"
@@ -54,19 +60,20 @@
 
             <TextView
                 android:id="@+id/species"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/species"
                 android:gravity="center"
+                android:text="@string/species"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/speciesEdite"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:text="character view will be displayed here"
-                />
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="character view will be displayed here" />
 
         </TableRow>
 
@@ -77,18 +84,19 @@
 
             <TextView
                 android:id="@+id/status"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/status"
                 android:gravity="center"
-                android:textStyle="bold"
-                />
+                android:text="@string/status"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/statusEdite"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="character status will be displayed here" />
 
         </TableRow>
@@ -100,19 +108,22 @@
 
             <TextView
                 android:id="@+id/gender"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:text="@string/gender" />
+                android:text="@string/gender"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/genderEditr"
-                android:layout_width="wrap_content"
+                android:id="@+id/genderEdite"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="character's gender will be displayed here" />
         </TableRow>
     </TableLayout>
+
 
 </com.google.android.material.card.MaterialCardView>

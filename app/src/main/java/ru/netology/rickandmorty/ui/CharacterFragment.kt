@@ -8,9 +8,22 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import ru.netology.rickandmorty.R
+import ru.netology.rickandmorty.adapter.CharacterAdapter
+import ru.netology.rickandmorty.adapter.CharacterCallback
 import ru.netology.rickandmorty.databinding.FragmentCharactersBinding
+import ru.netology.rickandmorty.dto.Character
+import ru.netology.rickandmorty.viewmodel.CharacterViewModel
 
+@AndroidEntryPoint
 class CharacterFragment : Fragment() {
 
     private var _binding: FragmentCharactersBinding? = null
@@ -51,6 +64,30 @@ class CharacterFragment : Fragment() {
     ): View {
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
 
+        val viewModel: CharacterViewModel by activityViewModels()
+
+
+        val adapter = CharacterAdapter(
+            object : CharacterCallback {
+                override fun onDetails(character: Character) {
+                    TODO("Not yet implemented")
+                }
+            }
+        )
+
+        val gridLayoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
+
+        binding.listCharacter.adapter = adapter
+        binding.listCharacter.layoutManager = gridLayoutManager
+
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.data.collect {
+                    adapter.submitData(it)
+                }
+            }
+        }
 
         return binding.root
     }
