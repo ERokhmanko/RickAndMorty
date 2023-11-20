@@ -11,8 +11,10 @@
 
 
     <TableLayout
+        android:id="@+id/cardEpisode"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:stretchColumns="0,1">
 
         <TableRow
             android:layout_width="match_parent"
@@ -22,11 +24,14 @@
 
             <TextView
                 android:id="@+id/nameEpisode"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:ellipsize="end"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
+                android:maxLines="3"
+                android:minLines="3"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 tools:text="Name Episode" />
@@ -40,7 +45,7 @@
 
             <TextView
                 android:id="@+id/episode"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/episode"
@@ -48,9 +53,11 @@
 
             <TextView
                 android:id="@+id/episodeEdite"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="The episode number will be displayed here" />
 
         </TableRow>
@@ -62,7 +69,7 @@
 
             <TextView
                 android:id="@+id/airDate"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/airDate"
@@ -70,9 +77,12 @@
 
             <TextView
                 android:id="@+id/airDateEdite"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:minLines="2"
+                android:maxLines="2"
                 tools:text="The release date of the episode will be displayed here" />
 
         </TableRow>

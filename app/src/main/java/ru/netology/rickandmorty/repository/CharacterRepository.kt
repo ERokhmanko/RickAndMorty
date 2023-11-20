@@ -17,7 +17,7 @@ import ru.netology.rickandmorty.repository.remoteMediator.CharacterRemoteMediato
 import javax.inject.Inject
 
 class CharacterRepository @Inject constructor(
-    private val dao: CharacterDao,
+    private val daoCharacter: CharacterDao,
     daoPage: NextPageCharacterDao,
     api: ApiService,
 ) {
@@ -27,8 +27,12 @@ class CharacterRepository @Inject constructor(
             pageSize = PageSize.PAGE_SIZE,
             enablePlaceholders = false
         ),
-        remoteMediator = CharacterRemoteMediator(dao, daoPage, api),
-        pagingSourceFactory = { dao.getPagingSourceCharacter() }
+        remoteMediator = CharacterRemoteMediator(
+            daoCharacter = daoCharacter,
+            daoNextPage = daoPage,
+            api = api
+        ),
+        pagingSourceFactory = { daoCharacter.getPagingSourceCharacter() }
     ).flow
         .map {
             it.map(CharacterEntity::toDto)

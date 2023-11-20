@@ -8,7 +8,7 @@
     <string name="status">Статус</string>
     <string name="gender">Гендер</string>
     <string name="episode">Эпизод</string>
-    <string name="airDate">Дата релиза</string>
+    <string name="airDate">Релиз</string>
     <string name="type">Тип</string>
     <string name="dimension">Измерение</string>
 </resources>

@@ -3,22 +3,7 @@ package ru.netology.rickandmorty.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ru.netology.rickandmorty.dto.Episode
-import ru.netology.rickandmorty.dto.InfoEpisode
 
-@Entity
-data class InfoEpisodeEntity(
-    val count: Int,
-    val pages: Int,
-    val next: String,
-    val prev: Int?
-) {
-    fun toDto() = InfoEpisode(count, pages, next, prev)
-
-    companion object {
-        fun fromDto(dto: InfoEpisode) =
-            InfoEpisodeEntity(dto.count, dto.pages, dto.next, dto.prev)
-    }
-}
 
 @Entity
 data class EpisodeEntity(

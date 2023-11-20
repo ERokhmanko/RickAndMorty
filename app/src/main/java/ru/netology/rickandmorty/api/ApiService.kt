@@ -19,6 +19,6 @@ interface ApiService {
 
     //Episode
     @GET("episode")
-    suspend fun getAllEpisodes(): Response<ListEpisode>
+    suspend fun getAllEpisodes(@Query("page") page: String? = null): Response<ListEpisode>
 
 }
