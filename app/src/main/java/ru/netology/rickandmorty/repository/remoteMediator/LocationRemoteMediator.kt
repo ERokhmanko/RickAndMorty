@@ -7,41 +7,40 @@ import androidx.paging.RemoteMediator
 import retrofit2.HttpException
 import ru.netology.diploma.error.ApiError
 import ru.netology.rickandmorty.api.ApiService
-import ru.netology.rickandmorty.dao.CharacterDao
-import ru.netology.rickandmorty.dao.NextPageCharacterDao
-import ru.netology.rickandmorty.entity.CharacterEntity
-import ru.netology.rickandmorty.entity.NextPageCharacterEntity
+import ru.netology.rickandmorty.dao.LocationDao
+import ru.netology.rickandmorty.dao.NextPageLocationDao
+import ru.netology.rickandmorty.entity.LocationEntity
+import ru.netology.rickandmorty.entity.NextPageLocationEntity
 import java.io.IOException
 import javax.inject.Inject
 
-
 @OptIn(ExperimentalPagingApi::class)
-class CharacterRemoteMediator @Inject constructor(
-    private val daoCharacter: CharacterDao,
-    private val daoNextPage: NextPageCharacterDao,
+class LocationRemoteMediator @Inject constructor(
+    private val daoNextPage: NextPageLocationDao,
+    private val daoLocation: LocationDao,
     private val api: ApiService
 
-) : RemoteMediator<Int, CharacterEntity>() {
+) : RemoteMediator<Int, LocationEntity>() {
     override suspend fun load(
-        loadType: LoadType, state: PagingState<Int, CharacterEntity>
+        loadType: LoadType,
+        state: PagingState<Int, LocationEntity>
     ): MediatorResult {
         try {
             val result = when (loadType) {
-
                 LoadType.APPEND -> {
                     if (state.isEmpty()) {
-                        api.getPageCharacters()
+                        api.getAllLocations()
                     } else {
-                        val page = daoNextPage.getLast() ?: return MediatorResult.Success(false)
-                        api.getPageCharacters(page)
+                        val nextPage = daoNextPage.getLast() ?: return MediatorResult.Success(false)
+                        api.getAllLocations(nextPage)
                     }
                 }
 
-                LoadType.REFRESH -> {
+                LoadType.PREPEND -> {
                     return MediatorResult.Success(false)
                 }
 
-                LoadType.PREPEND -> {
+                LoadType.REFRESH -> {
                     return MediatorResult.Success(false)
                 }
             }
@@ -52,22 +51,19 @@ class CharacterRemoteMediator @Inject constructor(
                 result.message()
             )
 
-            daoCharacter.insert(
-                data.results.map {
-                    CharacterEntity.fromDto(it)
-                }
-            )
-
             val urlNextPage = data.info.next
             val regex = Regex("\\d+")
             val nextPage = urlNextPage?.let { regex.find(it)?.value }
 
-            daoNextPage.insert(
-                NextPageCharacterEntity.fromDto(nextPage)
+            daoNextPage.insert(NextPageLocationEntity.fromDto(nextPage))
+
+            daoLocation.insert(
+                data.results.map {
+                    LocationEntity.fromDto(it)
+                }
             )
 
             return MediatorResult.Success(data.results.isEmpty())
-
         } catch (e: IOException) {
             return MediatorResult.Error(e)
         }

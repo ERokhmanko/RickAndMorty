@@ -35,5 +35,4 @@ data class Episode(
     val url: String, // (url)	Link to the episode's own endpoint.
     @SerializedName("created")
     val created: String, //	Time at which the episode was created in the database.
-
 )

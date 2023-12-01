@@ -2,23 +2,7 @@ package ru.netology.rickandmorty.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.netology.rickandmorty.dto.InfoLocation
 import ru.netology.rickandmorty.dto.Location
-
-@Entity
-data class InfoLocationEntity(
-    val count: Int,
-    val pages: Int,
-    val next: String,
-    val prev: Int?
-) {
-    fun toDto() = InfoLocation(count, pages, next, prev)
-
-    companion object {
-        fun fromDto(dto: InfoLocation) =
-            InfoLocationEntity(dto.count, dto.pages, dto.next, dto.prev)
-    }
-}
 
 @Entity
 data class LocationEntity(

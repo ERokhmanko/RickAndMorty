@@ -15,7 +15,7 @@ interface ApiService {
 
     //Location
     @GET("location")
-    suspend fun getAllLocations(): Response<ListLocation>
+    suspend fun getAllLocations(@Query("page") page: String? = null): Response<ListLocation>
 
     //Episode
     @GET("episode")

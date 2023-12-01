@@ -46,7 +46,6 @@ data class Character(
     val url: String, //Link to the character's own URL endpoint.
     @SerializedName("created")
     val created: String //Time at which the character was created in the database.
-
 )
 
 data class Origin(

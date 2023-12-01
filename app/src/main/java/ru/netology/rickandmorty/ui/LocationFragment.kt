@@ -8,9 +8,20 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import ru.netology.rickandmorty.R
+import ru.netology.rickandmorty.adapter.LocationAdapter
+import ru.netology.rickandmorty.adapter.LocationCallback
 import ru.netology.rickandmorty.databinding.FragmentLocationsBinding
+import ru.netology.rickandmorty.dto.Location
+import ru.netology.rickandmorty.viewmodel.LocationViewModel
 
 @AndroidEntryPoint
 class LocationFragment : Fragment() {
@@ -48,11 +59,34 @@ class LocationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLocationsBinding.inflate(inflater, container, false)
 
-        return binding.root
+        val viewModel: LocationViewModel by viewModels()
 
+        val adapter = LocationAdapter(
+            object : LocationCallback {
+                override fun onDetails(location: Location) {
+                    TODO("Not yet implemented")
+                }
+            }
+        )
+
+        val gridLayoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
+
+
+        binding.listLocations.adapter = adapter
+        binding.listLocations.layoutManager = gridLayoutManager
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.data.collect {
+                    adapter.submitData(it)
+                }
+            }
+        }
+
+        return binding.root
     }
 
     override fun onDestroyView() {

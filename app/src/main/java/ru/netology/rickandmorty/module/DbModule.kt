@@ -9,8 +9,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.netology.rickandmorty.dao.CharacterDao
 import ru.netology.rickandmorty.dao.EpisodeDao
+import ru.netology.rickandmorty.dao.LocationDao
 import ru.netology.rickandmorty.dao.NextPageCharacterDao
 import ru.netology.rickandmorty.dao.NextPageEpisodeDao
+import ru.netology.rickandmorty.dao.NextPageLocationDao
 import ru.netology.rickandmorty.db.AppDb
 import javax.inject.Singleton
 
@@ -37,4 +39,10 @@ class DbModule {
 
     @Provides
     fun providesNextPageEpisodeDao(appDb: AppDb): NextPageEpisodeDao = appDb.nextPageEpisodeDao()
+
+    @Provides
+    fun providesLocationDao(appDb: AppDb): LocationDao = appDb.locationDao()
+
+    @Provides
+    fun providesNextPageLocationDao(appDb: AppDb): NextPageLocationDao = appDb.nextPageLocationDao()
 }
